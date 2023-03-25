@@ -1,8 +1,9 @@
 ---
-title: "Unit 9 FLS"
+title: "Case Study 1"
 author: "Kenya Roy"
 date: "2023-02-26"
 output: html_document
+#This project was created in response to a class (Doing Data Science) project prompt. This project was completed by Kenya and Banu Pullaiahnaidu.
 
 #Thank you for pointing us in the right direction to use the Beers and Breweries datasets pulled from the company repository. We pulled these datasets into RStudio and conducted  an extensive exploratory data analysis for your review. We expect that Budweiser could benefit from gaining insight on our findings as you seek to get a greater understanding of the landscape of Breweries and Beer production in the US. For context, we looked at breweries and beers across the country by state and style with a specific focus on key beer characteristics including Alcohol By Volume and International Bitterness Unit.
 ---
@@ -12,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## R Markdown
+
 ```{r}
 setwd("/Users/kenyaroy/doing data science/unit 8")
 Beers = read.csv("/Users/kenyaroy/doing data science/unit 8/Beers.csv")
@@ -46,7 +48,6 @@ plot_usmap(data = StateBeerC, values = "values", regions = "state") + scale_fill
 #Using the heatmap, you can see the location of states with greater numbers of breweries (including Colorado, California, Michigan, Texas, Pennsylvania, etc.)
 ```
 
-
 ```{r}
 #Merge beer data with the breweries data. Print the first 6 observations and the last six observations to check the #merged file.
 Breweries$Brewery_id = Breweries$Brew_ID
@@ -63,7 +64,6 @@ tail(BB)
 
 #Here you can see the first and last 6 observations in the merged beers and breweries file.
 ```
-
 
 ```{r}
 #Address the missing values in each column
@@ -108,6 +108,7 @@ ggplotly(p)
 
 #The state with the most bitter (IBU) beer is Oregon.
 ```
+
 ```{r}
 #Which state has the maximum alcoholic (ABV) beer? 
 TestBB1 %>% dplyr::summarise(max(ABV))
@@ -118,12 +119,14 @@ ggplotly(p)
 #The state with the maximum alcoholic (ABV) beer is Colorado.
 
 ```
+
 ```{r}
 #Grab the summary statistics of ABV
 summary(TestBB1$ABV)
 
 #We found that while the measure of spread is large, many beers, found in the 50th percentile of ABV values, fall between 0.050 (Q1) and 0.067 (Q3), which is a small range. There are also many beers with ABVs beyond the third quartile (greater than 0.067)
 ```
+
 ```{r}
 #Distribution of ABV versus IBU
 BB %>% filter(!is.na(ABV) & !is.na(IBU)) %>% select(ABV, IBU) %>% ggpairs()
@@ -146,6 +149,7 @@ Ale <- TestBB1 %>% filter(grepl('Ale', Style))
 head(IPA)
 head(Ale)
 ```
+
 ```{r}
 BBIPAAle <- TestBB1 %>% filter(str_detect(Style, "IPA")|str_detect(Style, " Ale"))
 BBIPAAle$AleType <- ifelse(str_detect(BBIPAAle$Style,"IPA"),"IPA","Ale")
@@ -191,7 +195,7 @@ CM
 #To test our hypothesis in the previous plot, we conducted a KNN test (external test with train and test sets split 70 and 30 percent) and compared it to the Naive Bayes test.
 
 #We used both K-NN and Naïve Bayes models to get a better sense of the classification and accuracy. KNN gave a higher accuracy and sensitivity while Naïve Bayes gave a greater specificity. Using test and training sets of 70 and 30 percent produced the results in table 2. We see that Naïve Bayes produced more accurate classifications of Ales and IPAs and thus proved to be a better fit for this classification test.
-``` 
+```
 
 ```{r}
 #Separate dataset by beer style (IPA, Ale, Lager) and create bar chart.
