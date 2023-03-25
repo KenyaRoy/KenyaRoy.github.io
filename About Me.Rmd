@@ -1,0 +1,15 @@
+# About Me
+
+![My name is Kenya Roy](Kenya.JPG){width="240"}
+
+Location: Dallas, TX
+
+Education: American University, B.A. (Political Science) '19\
+Currently pursuing Master's in Data Science at Southern Methodist University
+
+Interests: Handcrafting goods for my hobby business, [The Dahlia Club](thedahliaclub.com)\
+Hanging out with my rottweiler/lab mix, Count Basie
+
+![Count Basie](Count%20Basie.JPG){width="240"}
+
+Now that you know a bit about me, feel free to familiarize yourself with my work! Navigate the ribbon above to discover the work/analyses I've completed thus far.

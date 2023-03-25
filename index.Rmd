@@ -1,0 +1,14 @@
+---
+title: "Simple Website"
+author: "Kenya Roy"
+date: "2023-03-25"
+output: html_document
+---
+
+# The Simple Yet Useful Website
+
+## Note: the Six Lines of text above are YAML tags
+
+### We will Knit this RMD to a html file next.
+
+Then push index.html to the github.io repo.
