@@ -5,10 +5,8 @@ date: "2023-03-25"
 output: html_document
 ---
 
-# The Simple Yet Useful Website
+# Welcome to my website!
 
-## Note: the Six Lines of text above are YAML tags
+## See my data science projects in the ribbon above.
 
-### We will Knit this RMD to a html file next.
 
-Then push index.html to the github.io repo.
