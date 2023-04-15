@@ -10,3 +10,5 @@ navbar:
       href: Case-Study-1.html
     - text: "Case Study 1 App"
       href: Case-Study-1-App.html
+    - text: "Case Study 2"
+      href: caseStudy2.html
