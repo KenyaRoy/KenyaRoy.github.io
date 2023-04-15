@@ -1,2 +1,2 @@
 # KenyaRoy.github.io
-Github website to deploy CLT models
+Github website to host data science projects.
