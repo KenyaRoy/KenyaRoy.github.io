@@ -13,3 +13,4 @@ navbar:
     - text: "Case Study 2"
       href: casestudy2.html
     - text: "Case Study 2 App"
+      href: https://kenyaroy.shinyapps.io/casestudy2app/
