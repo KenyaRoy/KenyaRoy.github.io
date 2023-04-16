@@ -32,10 +32,6 @@ library(dplyr)
 library(janitor)
 library(mixlm)
 
-#IAM Security
-Sys.setenv("AWS_ACCESS_KEY_ID" = "AKIAY5FDFY7XUECEEGHW", 
-          "AWS_SECRET_ACCESS_KEY" = "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")
-
 #Read in CaseStudy2-data file
 Case2 <- read.table(textConnection(getURL("https://ddsproject1.s3.amazonaws.com/CaseStudy2-data.csv"
                                           )), sep=",", header=TRUE)
