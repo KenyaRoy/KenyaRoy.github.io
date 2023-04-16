@@ -1,0 +1,112 @@
+---
+title: "Other Read App"
+author: "Kenya Roy"
+date: "2023-03-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+ # App title ----
+  titlePanel("Histogram of IBU")
+  
+  # Sidebar layout with input and output definitions ----
+  sidebarLayout(
+    
+    # Sidebar panel for inputs ----
+    sidebarPanel(
+      
+      #Input: Slider for the number of bins ----
+      sliderInput(inputId = "bins",
+                  label = "Number of bins:",
+                  min = 1,
+                  max = 50,
+                  value = 1),
+      
+      #Copy the line below to make a select box 
+      selectInput("select", label = h3("IBU Values"), 
+                  choice = list("IBU" = "IBU"), 
+                  selected = 1),
+      hr(),
+      fluidRow(column(3, verbatimTextOutput("value")))
+    ),
+    
+    # Main panel for displaying outputs ----
+    mainPanel(
+      
+      # Output: Histogram ----
+      plotOutput(outputId = "distPlot")
+      
+    )
+  )
+
+# Define server logic required to draw a histogram ----
+server <- function(input, output) {
+  
+  # Histogram of the Old Faithful Geyser Data ----
+  # with requested number of bins
+  # This expression that generates a histogram is wrapped in a call
+  # to renderPlot to indicate that:
+  #
+  # 1. It is "reactive" and therefore should be automatically
+  #    re-executed when inputs (input$bins) change
+  # 2. Its output type is a plot
+  output$distPlot <- renderPlot({
+    
+    if(input$select == "IBU")
+    {
+      x    <- Beers$IBU
+      bins <- seq(min(x), max(x), length.out = input$bins + 1)
+      
+      hist(x, breaks = bins, col = "#75AADB", border = "white",
+           xlab = "IBU Values of Beers",
+           main = "Histogram of Beer IBU Values")
+    }
+
+  })
+  
+}
+
+# Create Shiny app ----
+shinyApp(ui, server)
+```
+```
+library(shiny)
+
+ui <- fluidPage(
+
+fluidRow(
+   
+  column(4,
+      wellPanel(
+        fileInput("file", label = h3("Upload a file")),
+        hr(),
+        p("Current Value:", style = "color:#888888;"), 
+        verbatimTextOutput("fileOut"),
+        a("See Data", class = "btn btn-primary btn-md",  
+          href = "https://gallery.shinyapps.io/073-widget-file/")
+      ))
+
+),
+  
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

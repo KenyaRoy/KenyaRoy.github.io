@@ -11,9 +11,9 @@
 
 <meta name="author" content="Kenya Roy" />
 
-<meta name="date" content="2023-03-25" />
+<meta name="date" content="2023-03-26" />
 
-<title>Simple Website</title>
+<title>Other Read App</title>
 
 <script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -34,6 +34,12 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/ionrangeslider-javascript-2.3.1/js/ion.rangeSlider.min.js"></script>
+<script src="site_libs/strftime-0.9.2/strftime-min.js"></script>
+<link href="site_libs/ionrangeslider-css-2.3.1/css/ion.rangeSlider.css" rel="stylesheet" />
+<link href="site_libs/selectize-0.12.4/css/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="site_libs/selectize-0.12.4/js/selectize.min.js"></script>
+<script src="site_libs/selectize-0.12.4/accessibility/js/selectize-plugin-a11y.min.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -272,19 +278,54 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Simple Website</h1>
+<h1 class="title toc-ignore">Other Read App</h1>
 <h4 class="author">Kenya Roy</h4>
-<h4 class="date">2023-03-25</h4>
+<h4 class="date">2023-03-26</h4>
 
 </div>
 
 
-<div id="welcome-to-my-website" class="section level1">
-<h1>Welcome to my website!</h1>
-<div id="see-my-data-science-projects-in-the-ribbon-above."
-class="section level2">
-<h2>See my data science projects in the ribbon above.</h2>
-</div>
+<pre><code>library(shiny)
+
+ui &lt;- fluidPage(
+
+fluidRow(
+   
+  column(4,
+      wellPanel(
+        fileInput(&quot;file&quot;, label = h3(&quot;Upload a file&quot;)),
+        hr(),
+        p(&quot;Current Value:&quot;, style = &quot;color:#888888;&quot;), 
+        verbatimTextOutput(&quot;fileOut&quot;),
+        a(&quot;See Data&quot;, class = &quot;btn btn-primary btn-md&quot;,  
+          href = &quot;https://gallery.shinyapps.io/073-widget-file/&quot;)
+      ))
+
+),
+  
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;http://rmarkdown.rstudio.com&gt;.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+```r
+summary(cars)</code></pre>
+<pre><code>##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00</code></pre>
+<div id="including-plots" class="section level2">
+<h2>Including Plots</h2>
+<p>You can also embed plots, for example:</p>
+<p><img src="other-read-app_files/figure-html/pressure-1.png" width="672" /></p>
+<p>Note that the <code>echo = FALSE</code> parameter was added to the
+code chunk to prevent printing of the R code that generated the
+plot.</p>
 </div>
 
 
